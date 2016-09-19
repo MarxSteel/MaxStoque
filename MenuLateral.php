@@ -4,16 +4,16 @@
   </div>
  </div>
  <ul class="sidebar-menu">
-                        <li class="active">
-                                    <a href="index.html">
-                                        <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="general.html">
-                                        <i class="fa fa-gavel"></i> <span>General</span>
-                                    </a>
-                                </li>
+  <li class="active">
+   <a href="index.html">
+    <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+   </a>
+  </li>
+  <li>
+    <a href="general.html">
+     <i class="fa fa-gavel"></i> <span>Categoria</span>
+    </a>
+  </li>
 
                                 <li>
                                     <a href="basic_form.html">

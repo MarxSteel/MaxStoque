@@ -83,6 +83,17 @@ include_once 'header.php';
         </div>
      </div>
     </div>
+    <div class="col-md-3">
+     <div class="sm-st clearfix">
+      <a href="Categoria.php" >
+       <span class="sm-st-icon st-red">
+        <i class="fa fa-check-square-o"></i></span>
+      </a>
+        <div class="sm-st-info">
+         <h4>Categorias</h4>
+        </div>
+     </div>
+    </div>
    </div>
   </section><!-- /.content -->
  <?php include_once 'footer.php'; ?>
