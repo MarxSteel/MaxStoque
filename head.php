@@ -1,6 +1,6 @@
 <head>
  <meta charset="UTF-8">
- <title><?php echo $Title; ?></title>
+ <title><?php echo $Titulo; ?></title>
  <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
  <meta name="description" content="Desenvolvido por Marquistei Medeiros">
  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
