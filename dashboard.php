@@ -47,8 +47,10 @@ include_once 'header.php';
    <div class="row">
     <div class="col-md-3">
      <div class="sm-st clearfix">
-      <span class="sm-st-icon st-red">
-       <i class="fa fa-check-square-o"></i></span>
+      <a href="Fornecedor/dashboard.php" >
+       <span class="sm-st-icon st-red">
+        <i class="fa fa-check-square-o"></i></span>
+      </a>
         <div class="sm-st-info">
          <h4>Fornecedores</h4>
         </div>
