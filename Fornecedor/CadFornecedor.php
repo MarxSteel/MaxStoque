@@ -137,15 +137,19 @@ $PDO = db_connect();
       <strong>Num.:</strong><br />
       <?php echo $Num; ?>
       </div>
-      <div class="col-md-4 form-group">
-      <a href="#TrocaFoto" data-toggle="modal" class="btn btn-lg btn-success">
+      <div class="col-md-3 form-group">
+      <a href="#TrocaFoto" data-toggle="modal" class="btn btn-md btn-block btn-success">
       Trocar Logo
       </a>
       </div>
-
       <div class="col-md-3 form-group">
-      <a href="#EditaForn" data-toggle="modal" class="btn btn-lg btn-warning">
-      Editar Dados
+      <a href="#EditaForn" data-toggle="modal" class="btn btn-block btn-info">
+      Editar Dados de Contato
+      </a>
+      </div>
+      <div class="col-md-3 form-group">
+      <a href="#EditaEnd" data-toggle="modal" class="btn btn-block btn-danger">
+      Editar Dados de Endereço
       </a>
       </div>
       <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="TrocaFoto" class="modal fade">
@@ -207,32 +211,36 @@ $PDO = db_connect();
            <div class="col-xs-4 form-group">Telefone
             <input class="form-control" type="text" name="fone" required="required">
            </div>
-           <div class="col-xs-4 form-group">Ramal
-            <input class="form-control" type="text" name="ramal" required="required">
+           <div class="col-xs-4 form-group">Telefone 2 (Fax)
+            <input class="form-control" type="text" name="fax" required="required">
            </div>
+
            <div class="col-xs-4 form-group">Celular
             <input class="form-control" type="text" name="celular" required="required">
            </div>
            <div class="col-xs-8 form-group">E-Mail
             <input class="form-control" type="email" name="email" required="required">
            </div>
-
+           <div class="col-xs-4 form-group">Ramal
+            <input class="form-control" type="text" name="ramal" required="required">
+           </div>
            <input name="enviar" type="submit" class="btn btn-success btn-block" id="enviar" value="Atualizar Dados"  />
           </form>
           <?php
            if(@$_POST["enviar"]){
-            $NNome = $_POST["nome"];
-            $NRamal = $_POST["ramal"];
+            $nFone = $_POST["fone"];
+            $nFax = $_POST["fax"];
+            $nCel = $_POST["celular"];
             $NMail = $_POST["email"];
-            $NFone = $_POST["fone"];
+            $nRamal = $_POST["ramal"];
             //EXECUTANDO A QUERY
-            $AtPerfil = $PDO->query("UPDATE login SET Nome='$NNome', Mail='$NMail', Ramal='$NRamal', Fone='$NFone' WHERE login='$login'");
+            $AtPerfil = $PDO->query("UPDATE fornecedor SET f_Fone='$nFone', f_Fax='$nFax', f_Celular='$nCel', f_Mail='$NMail', f_Ramal='$nRamal' WHERE f_id='$CForn'");
              if($AtPerfil)
              {
               echo '
-              <script type="text/JavaScript">alert("Perfil Atualizado com Sucesso");
-              location.href="Perfil.php"</script>';
-             }
+              <script type="text/JavaScript">alert("Contato Atualizado com Sucesso");
+              location.href="CadFornecedor.php?ID=' . $CForn . '"</script>';
+              }
              else{
               echo '<script type="text/javascript">alert("Não foi possível. Erro: 0x01");</script>';
              }
@@ -243,7 +251,65 @@ $PDO = db_connect();
        </div>
       </div>
       <!-- FINAL DO MODAL DE EDITAR CADASTRO -->
-      
+      <!-- INICIO DO MODAL DE EDITAR Endereço -->
+      <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="EditaEnd" class="modal fade">
+       <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+           <button aria-hidden="true" data-dismiss="modal" class="close" type="button"><code>X</code></button>
+           <h4 class="modal-title">Editar Dados de Endereço</h4>
+          </div>
+          <div class="modal-body">
+           <form name="EdCad" id="name" method="post" action="" enctype="multipart/form-data">
+           <div class="col-xs-12 form-group">
+            <h3><?php echo $Nome; ?></h3>
+           </div>
+           <div class="col-xs-7 form-group">Rua
+            <input class="form-control" type="text" name="end" required="required">
+           </div>
+           <div class="col-xs-3 form-group">Num.:
+            <input class="form-control" type="text" name="num" required="required">
+           </div>
+           <div class="col-xs-2 form-group">UF
+            <input class="form-control" type="text" name="uf" required="required">
+           </div> 
+           <div class="col-xs-4 form-group">Bairro
+            <input class="form-control" type="text" name="bairro" required="required">
+           </div>
+           <div class="col-xs-4 form-group">Cidade
+            <input class="form-control" type="text" name="cidade" required="required">
+           </div>
+           <div class="col-xs-4 form-group">CEP
+            <input class="form-control" type="text" name="cep" required="required">
+           </div>
+           <input name="AttEnd" type="submit" class="btn btn-success btn-block" id="AttEnd" value="Atualizar Dados"  />
+          </form>
+          <?php
+           if(@$_POST["AttEnd"]){
+            $nRua = $_POST["end"];
+            $nNum = $_POST["num"];
+            $nUF = $_POST["uf"];
+            $nBairro = $_POST["bairro"];
+            $nCidade = $_POST["cidade"];
+            $nCEP = $_POST["cep"];
+            //EXECUTANDO A QUERY
+            $AtPerfil = $PDO->query("UPDATE fornecedor SET f_End='$nRua', f_Num='$nNum', f_Bairro='$nBairro', f_CEP='$nCEP', f_Cidade='$nCidade', f_UF='$nUF' WHERE f_id='$CForn'");
+             if($AtPerfil)
+             {
+              echo '
+              <script type="text/JavaScript">alert("Endereço Atualizado com Sucesso");
+              location.href="CadFornecedor.php?ID=' . $CForn . '"</script>';
+              }
+             else{
+              echo '<script type="text/javascript">alert("Não foi possível. Erro: 0x01");</script>';
+             }
+           }
+          ?>
+          </div>
+        </div>
+       </div>
+      </div>
+      <!-- FINAL DO MODAL DE EDITAR CADASTRO -->
 
 
 
