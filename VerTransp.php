@@ -9,14 +9,25 @@ $PDO = db_connect();
   $NomeUserLogado = $row['Nome'];
   $foto = $row['Foto'];
 $dt = date("d/m/Y - H:i:s");
-
-
-
-
 $ChamaTransp = "SELECT * FROM transporte";
 $CadTransp = $PDO->prepare($ChamaTransp);
 $CadTransp->execute();
 
+
+$ValorTransp = $_GET['ID'];
+
+ $Dados = $PDO->prepare("SELECT * FROM transporte WHERE id_transp='$ValorTransp'");
+  $Dados->execute();
+  $campo = $Dados->fetch();
+  $NomeTransporte = $campo['Nome'];
+  $TipoTransporte = $campo['Tipo'];
+  $Modalidade = $campo['Categoria'];
+  $Endereco = $campo['End'];
+  $Numero = $campo['Num'];
+  $Bairro = $campo['Bairro'];
+  $Cidade = $campo['Cidade'];
+  $UF = $campo['UF'];
+  $CEP = $campo['CEP'];
 
 
 ?>
@@ -55,54 +66,64 @@ include_once 'header.php';
   <?php include_once 'MenuLateral.php'; ?>
  </aside>
  <aside class="right-side">
+ <section class="panel">
+  <header class="panel-heading">CADASTRO DE TRANSPORTADORA</header>
+  <div class="panel-body">
+   <div class="row">
+    <div class="col-md-12 form-group">
+     <h2><strong><?php echo $NomeTransporte; ?></strong></h2>
+    </div>
+    <div class="col-md-3 form-group">Tipo de Transporte:
+    <?php 
+     if ($TipoTransporte === '1') {
+      echo '<strong>Aéreo</strong>';
+     }
+     elseif ($TipoTransporte === '2') {
+      echo '<strong>Marítimo</strong>';
+     }
+     elseif ($TipoTransporte === '3') {
+      echo '<strong>Terrestre</strong>';
+     }
+     else{
+    }
+    ?>
+    </div>
+    <div class="col-md-3 form-group">Modalidade de Frete:
+     <?php 
+      if ($Modalidade === '1') {
+       echo '<strong>Nacional</strong>';
+      }
+      elseif ($TipoTransporte === '2') {
+        echo '<strong>Importação</strong>';
+      }
+      else{
+      }
+     ?>
+    </div>
+   <div class="col-sm-12">
+   <h3>Informações de Endereço</h3>
+   </div>
+   <div class="col-sm-3">Endereço: <br />
+   <strong><?php echo $Endereco . ' Nr.: ' . $Numero; ?></strong>
+   </div>
+   <div class="col-sm-3">Bairro: <br />
+   <strong><?php echo $Bairro; ?></strong>
+   </div>
+   <div class="col-sm-3">CEP: <br />
+   <strong><?php echo $CEP; ?></strong>
+   </div>
+   <div class="col-sm-3">Cidade: <br />
+   <strong><?php echo $Cidade . ' - ' . $UF; ?></strong>
+   </div>
+  </div>
+ </div>
+ </section>
   <section class="content">
    <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-12">
      <div class="panel">
-      <header class="panel-heading">Lista de Transportes</header>
-      <div class="panel-body">
-       <table id="Categoria" class="table table-bordered table-striped">
-        <thead>
-         <tr>
-          <th style="width: 10px">#</th>
-          <th>Categoria</th>
-          <th style="width: 30px">Tipo</th>
-          <th style="width: 30px">Tipo</th>
-         </tr>
-        </thead>
-        <tbody>
-         <?php 
-          while ($VTransp = $CadTransp->fetch(PDO::FETCH_ASSOC)): 
-           echo '<tr>';
-            echo '<td>' . $VTransp['id_transp'] . '</td>';
-            echo '<td>' . $VTransp['Nome'] . '</td>';
-            echo '<td>';
-              $TipoTransp = $VTransp['Tipo'];
-              if ($TipoTransp === "1") {
-              echo '<span class="label label-danger">Aéreo</span>';
-              }
-              elseif ($TipoTransp === "2") {
-              echo '<span class="label label-warning">Marítimo</span>';
-              }
-              elseif ($TipoTransp === "3") {
-              echo '<span class="label label-success">Terrestre</span>';
-              }
-              else{
-              }
-            echo '</td>';
-            ?>
-            <td>
-            <a class="btn btn-info btn-sm" href="javascript:abrir('VerTransp.php?ID=<?php echo $VTransp['id_transp']; ?>');">
-             <i class="material-icons">search</i>
-            </a>
-            </td>
-           <?php
-           echo '</tr>';
-           endwhile;
-         ?>
-        </tbody>
-       </table>
-      </div><!-- /.panel-body -->
+      <header class="panel-heading">Detalhes de Transportadora</header>
+      SASAS
      </div><!-- /.panel -->
     </div><!-- /.col -->
     <div class="col-md-3">
@@ -183,7 +204,7 @@ include_once 'header.php';
 </div><!-- ./wrapper -->
 <script language="JavaScript">
 function abrir(URL) { 
-  var width = 950;
+  var width = 800;
   var height = 650;
   var left = 99;
   var top = 99;
