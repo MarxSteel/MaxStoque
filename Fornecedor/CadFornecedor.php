@@ -201,17 +201,20 @@ $PDO = db_connect();
           </div>
           <div class="modal-body">
            <form name="EdCad" id="name" method="post" action="" enctype="multipart/form-data">
-           <div class="col-xs-8 form-group">Nome Completo 
-            <input class="form-control" type="text" name="nome" required="required" placeholder="<?php echo $NomeUserLogado; ?>">
-           </div>
-           <div class="col-xs-4 form-group">Ramal
-            <input class="form-control" type="text" name="ramal" required="required" placeholder="<?php echo $ramal; ?>">
+           <div class="col-xs-12 form-group">
+            <h3><?php echo $Nome; ?></h3>
            </div>
            <div class="col-xs-4 form-group">Telefone
-            <input class="form-control" type="text" name="fone" required="required" placeholder="<?php echo $telefone; ?>">
+            <input class="form-control" type="text" name="fone" required="required">
+           </div>
+           <div class="col-xs-4 form-group">Ramal
+            <input class="form-control" type="text" name="ramal" required="required">
+           </div>
+           <div class="col-xs-4 form-group">Celular
+            <input class="form-control" type="text" name="celular" required="required">
            </div>
            <div class="col-xs-8 form-group">E-Mail
-            <input class="form-control" type="email" name="email" required="required" placeholder="<?php echo $mail; ?>">
+            <input class="form-control" type="email" name="email" required="required">
            </div>
 
            <input name="enviar" type="submit" class="btn btn-success btn-block" id="enviar" value="Atualizar Dados"  />
