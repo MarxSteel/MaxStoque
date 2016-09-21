@@ -26,6 +26,8 @@ $PDO = db_connect();
  <link href="css/morris/morris.css" rel="stylesheet" type="text/css" />
  <link href="css/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
  <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <!-- Theme style -->
  <link href="css/style.css" rel="stylesheet" type="text/css" />
  </head>
@@ -53,6 +55,17 @@ include_once 'header.php';
       </a>
         <div class="sm-st-info">
          <h4>Fornecedores</h4>
+        </div>
+     </div>
+    </div>
+    <div class="col-md-3">
+     <div class="sm-st clearfix">
+      <a href="Itens/dashboard.php" >
+       <span class="sm-st-icon st-red">
+        <i class="material-icons">swap_horiz</i></span>
+      </a>
+        <div class="sm-st-info">
+         <h4>Itens</h4>
         </div>
      </div>
     </div>
