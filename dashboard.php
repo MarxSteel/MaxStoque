@@ -60,7 +60,7 @@ include_once 'header.php';
     </div>
     <div class="col-md-3">
      <div class="sm-st clearfix">
-      <a href="Itens.php" >
+      <a href="Itens/dashboard.php" >
        <span class="sm-st-icon st-red">
         <i class="material-icons">swap_horiz</i></span>
       </a>
