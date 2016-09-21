@@ -150,7 +150,7 @@ include_once 'header.php';
 </div><!-- ./wrapper -->
 <script language="JavaScript">
 function abrir(URL) { 
-  var width = 950;
+  var width = 1100;
   var height = 650;
   var left = 99;
   var top = 99;

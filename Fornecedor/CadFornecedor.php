@@ -142,11 +142,29 @@ $PDO = db_connect();
       Trocar Logo
       </a>
       </div>
+      <div class="col-xs-3 form-group">
+      <strong>Bairro:</strong><br />
+      <?php echo $Bairro; ?>
+      </div>
+      <div class="col-xs-2 form-group">
+      <strong>CEP:</strong><br />
+      <?php echo $CEP; ?>
+      </div>
+      <div class="col-xs-2 form-group">
+      <strong>Cidade:</strong><br />
+      <?php echo $Cidade; ?>
+      </div>
+            <div class="col-xs-2 form-group">
+      <strong>UF:</strong><br />
+      <?php echo $UF; ?>
+      </div>
+
       <div class="col-md-3 form-group">
       <a href="#EditaForn" data-toggle="modal" class="btn btn-block btn-info">
       Editar Dados de Contato
       </a>
       </div>
+      <div class="col-xs-12 form-group"></div>
       <div class="col-md-3 form-group">
       <a href="#EditaEnd" data-toggle="modal" class="btn btn-block btn-danger">
       Editar Dados de Endereço
