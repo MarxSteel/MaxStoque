@@ -48,7 +48,7 @@ include_once 'header.php';
  <aside class="right-side">
   <section class="content">
    <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-9">
      <section class="panel">
       <header class="panel-heading">
        Cadastro de itens Produção
@@ -74,28 +74,16 @@ include_once 'header.php';
         <div class="panel-body">
          <div class="tab-content">
           <div id="placas" class="tab-pane active">
-            <table id="example" class="display" cellspacing="0" width="80%" style="font-size: 1em;">
-             <thead>
-              <tr>
-               <th width='10px'>#</th>
-               <th width='250px'>Lutador</th>
-               <th width='250px'>Apelido</th>
-              </tr>
-             </thead>
-             <tbody>
-              <td>1</td>
-              <td>aa</td>
-              <td>2</td>
-            </table>
+          <?php include_once 'TabelaPlaca.php'; ?>
           </div>
           <div id="eletro" class="tab-pane">
-          Cadastro de Eletrônicos
+          <?php include_once 'TabelaEletro.php'; ?>
           </div>
           <div id="mecanico" class="tab-pane">
-          Cadastro de mecanico
+          <?php include_once 'TabelaMec.php'; ?>
           </div>
           <div id="estrutura" class="tab-pane">
-          Cadastro de estruturais
+          <?php include_once 'TabelaEstr.php'; ?>
           </div>  
           <div id="contact" class="tab-pane">Contact</div>
          </div>
@@ -110,9 +98,60 @@ include_once 'header.php';
       </div>
      </section>
     </div>
+    <div class="col-md-3">
+     <div class="sm-st clearfix">
+      <a data-toggle="modal" data-target="#AddItem">
+       <span class="sm-st-icon bg-purple pull-right">
+        <i class="fa fa-plus"></i>
+       </span>
+      </a>
+        <div class="sm-st-info">
+         <h4>Nova Placa</h4>
+        </div>
+     </div>
+    </div>
+    <div class="col-md-3">
+     <div class="sm-st clearfix">
+      <a data-toggle="modal" data-target="#AddItem">
+       <span class="sm-st-icon bg-navy pull-right">
+        <i class="fa fa-plus"></i>
+       </span>
+      </a>
+        <div class="sm-st-info">
+         <h4>Nova peça Eletrônica</h4>
+        </div>
+     </div>
+    </div>
+    <div class="col-md-3">
+     <div class="sm-st clearfix">
+      <a data-toggle="modal" data-target="#AddItem">
+       <span class="sm-st-icon bg-red pull-right">
+        <i class="fa fa-plus"></i>
+       </span>
+      </a>
+        <div class="sm-st-info">
+         <h4>Nova peça Mecânica</h4>
+        </div>
+     </div>
+    </div>
+    <div class="col-md-3">
+     <div class="sm-st clearfix">
+      <a data-toggle="modal" data-target="#AddItem">
+       <span class="sm-st-icon bg-orange pull-right">
+        <i class="fa fa-plus"></i>
+       </span>
+      </a>
+        <div class="sm-st-info">
+         <h4>Nova peça Estrutural</h4>
+        </div>
+     </div>
+    </div>
    </div>
   </section><!-- /.content -->
- <?php include_once '../footer.php'; ?>
+ <?php 
+  include_once 'ModalInsere.php'; 
+  include_once '../footer.php'; 
+ ?>
  </aside><!-- /.right-side -->
 </div><!-- ./wrapper -->
 <script language="JavaScript">
@@ -146,7 +185,41 @@ function abrir(URL) {
       "info": false,
       "autoWidth": false
     });
+    $('#tabPlaca').dataTable({
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": true
+    });
+    $('#tabEletro').dataTable({
+      "paging": false,
+      "lengthChange": false,
+      "searching": true,
+      "ordering": false,
+      "info": true,
+      "autoWidth": false
+    });
+    $('#tabMec').dataTable({
+      "paging": false,
+      "lengthChange": false,
+      "searching": true,
+      "ordering": false,
+      "info": true,
+      "autoWidth": false
+    });
+    $('#tabEstr').dataTable({
+      "paging": false,
+      "lengthChange": false,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false
+    });
     } );
+
+    
     </script>
 
 

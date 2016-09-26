@@ -32,6 +32,12 @@ $Forn->execute();
  <link href="../css/style.css" rel="stylesheet" type="text/css" />
  </head>
 <body class="skin-black">
+<script>
+   $(document).ready(function()
+   {
+      $("#mostrarmodal").modal("show");
+   });
+</script>
 <?php
 include_once 'header.php';
 ?>
@@ -47,7 +53,7 @@ include_once 'header.php';
  <aside class="right-side">
   <section class="content">
    <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-8">
      <div class="panel">
       <header class="panel-heading">Cadastro de Forcenecedor</header>
       <div class="panel-body">
@@ -88,7 +94,7 @@ include_once 'header.php';
       </div><!-- /.panel-body -->
      </div><!-- /.panel -->
     </div><!-- /.col -->
-    <div class="col-md-3">
+    <div class="col-md-4">
      <div class="sm-st clearfix">
       <a data-toggle="modal" data-target="#NovaCat">
        <span class="sm-st-icon st-green">
@@ -148,6 +154,27 @@ include_once 'header.php';
  <?php include_once '../footer.php'; ?>
  </aside><!-- /.right-side -->
 </div><!-- ./wrapper -->
+
+<!-- modal de teste -->
+<div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3>Cabecera de la ventana</h3>
+     </div>
+         <div class="modal-body">
+            <h4>Texto de la ventana</h4>
+            Mas texto en la ventana.    
+     </div>
+         <div class="modal-footer">
+        <a href="#" data-dismiss="modal" class="btn btn-danger">Cerrar</a>
+     </div>
+      </div>
+   </div>
+</div>
+<!-- fim do modal de teste  -->
+
 <script language="JavaScript">
 function abrir(URL) { 
   var width = 1100;
@@ -166,4 +193,5 @@ function abrir(URL) {
 <script src="../js/Director/dashboard.js" type="text/javascript"></script>
 </script>
 </body>
+
 </html>
